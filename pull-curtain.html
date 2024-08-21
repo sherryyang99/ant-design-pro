@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div,
+      p,
+      span {
+        margin: 0;
+        padding: 0;
+      }
+      .dp {
+        margin: 60px auto;
+        position: relative;
+        width: 500px;
+      }
+      .dp .mask1 {
+        content: "";
+        height: 100%;
+        width: 50%;
+        background-color: #f00;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.5s linear;
+      }
+
+      .dp .mask2 {
+        content: "";
+        height: 100%;
+        width: 50%;
+        background-color: #f00;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 0.5s linear;
+      }
+      .dp.is-active .mask1,
+      .dp.is-active .mask2 {
+        width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dp">
+      <p class="mask1"></p>
+      <span
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Id numquam,
+        debitis illo dolores ad, excepturi laborum repellat enim expedita, unde
+        porro. Autem perferendis sit corrupti neque aliquid quaerat ipsam
+        vel.</span
+      >
+      <p class="mask2"></p>
+    </div>
+    <script>
+      const dp = document.querySelector(".dp");
+      const closeMask = () => {
+        const timeId = setTimeout(() => {
+          dp.setAttribute("class", "dp is-active");
+        }, 1000);
+        console.log(timeId);
+      };
+      closeMask();
+    </script>
+  </body>
+</html>
